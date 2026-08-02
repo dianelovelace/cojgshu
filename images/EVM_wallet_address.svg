@@ -1,0 +1,66 @@
+<svg width="354" height="346" viewBox="0 0 354 346" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_1371_88067)">
+<g clip-path="url(#clip0_1371_88067)">
+<rect x="40" y="26" width="274" height="266" rx="30" fill="white"/>
+<text fill="#888888" style="white-space: pre" xml:space="preserve" font-family="SF Pro Rounded" font-size="12" font-weight="500" letter-spacing="0.02em"><tspan x="122.683" y="142.266">EVM Wallet Address</tspan></text>
+<text fill="#888888" style="white-space: pre" xml:space="preserve" font-family="SF Pro Rounded" font-size="13" font-weight="500" letter-spacing="0.02em"><tspan x="118.337" y="165.621">CA71679Cf1299936D6104</tspan><tspan x="116.445" y="181.621">D825c96544</tspan></text>
+<text fill="#333333" style="white-space: pre" xml:space="preserve" font-family="SF Pro Rounded" font-size="13" font-weight="500" letter-spacing="0.02em"><tspan x="71.2894" y="165.621">0x2C74</tspan><tspan x="197.959" y="181.621">8907b</tspan></text>
+<g filter="url(#filter1_dii_1371_88067)">
+<rect x="141" y="244" width="72" height="28" rx="14" fill="#F3F3F3" fill-opacity="0.84" shape-rendering="crispEdges"/>
+<rect x="140.5" y="243.5" width="73" height="29" rx="14.5" stroke="white" shape-rendering="crispEdges"/>
+<text fill="#333333" style="white-space: pre" xml:space="preserve" font-family="SF Pro Rounded" font-size="12" font-weight="500" letter-spacing="0em"><tspan x="163.201" y="262.266">Copy</tspan></text>
+</g>
+<rect x="108.5" y="41.5" width="138" height="33" rx="16.5" fill="#F0F0F0"/>
+<rect x="108.5" y="41.5" width="138" height="33" rx="16.5" stroke="white"/>
+<rect x="111" y="44" width="80" height="28" rx="14" fill="white"/>
+<rect x="119" y="50.4414" width="15.6" height="15.6" rx="7.8" fill="#F4F4F4"/>
+<g clip-path="url(#clip1_1371_88067)">
+<path d="M126.822 54.4688C126.873 54.5542 126.92 54.635 126.968 54.7158C127.108 54.9544 127.248 55.1936 127.388 55.4328C127.59 55.7765 127.791 56.1208 127.992 56.4645C128.151 56.7346 128.309 57.004 128.467 57.2741C128.617 57.5311 128.768 57.7873 128.918 58.0443C128.966 58.1264 129.014 58.2079 129.063 58.2894C129.068 58.2993 129.073 58.3058 129.06 58.3144C128.81 58.4649 128.561 58.616 128.312 58.7672C127.981 58.9682 127.649 59.1693 127.318 59.3704C127.16 59.4664 127.002 59.5617 126.844 59.6589C126.826 59.6701 126.815 59.6688 126.799 59.6589C126.53 59.4946 126.261 59.3316 125.992 59.168C125.739 59.0142 125.485 58.8598 125.231 58.706C125.031 58.5845 124.832 58.4636 124.632 58.3426C124.613 58.3308 124.593 58.319 124.572 58.3058C125.322 57.027 126.071 55.7495 126.822 54.4688Z" fill="#4D4D4D"/>
+<path d="M124.556 58.7526C124.728 58.8571 124.9 58.9609 125.072 59.0654C125.478 59.3119 125.883 59.5583 126.289 59.8041C126.452 59.9033 126.615 60.0019 126.778 60.1018C126.789 60.1083 126.796 60.107 126.806 60.1018C126.971 60.0012 127.137 59.9013 127.302 59.8014C127.527 59.6654 127.752 59.5287 127.977 59.3927C128.312 59.1903 128.645 58.9879 128.979 58.7848C128.998 58.7737 129.017 58.7625 129.039 58.75C128.29 59.8343 127.543 60.916 126.793 62.0003C126.045 60.9166 125.299 59.8363 124.553 58.7553L124.556 58.7526Z" fill="#4D4D4D"/>
+</g>
+<text fill="#333333" style="white-space: pre" xml:space="preserve" font-family="SF Pro Rounded" font-size="11.1429" font-weight="500" letter-spacing="0em"><tspan x="138.867" y="62.2031">Ethereum</tspan></text>
+<text fill="#888888" style="white-space: pre" xml:space="preserve" font-family="SF Pro Rounded" font-size="11.1429" font-weight="500" letter-spacing="0em"><tspan x="199.76" y="62.2031">Solana</tspan></text>
+</g>
+<rect x="40.5" y="26.5" width="273" height="265" rx="29.5" stroke="#F4F4F4"/>
+</g>
+<defs>
+<filter id="filter0_d_1371_88067" x="0" y="0" width="354" height="346" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="14"/>
+<feGaussianBlur stdDeviation="20"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1371_88067"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1371_88067" result="shape"/>
+</filter>
+<filter id="filter1_dii_1371_88067" x="122" y="229" width="110" height="66" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="9"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1371_88067"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1371_88067" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+<feBlend mode="normal" in2="shape" result="effect2_innerShadow_1371_88067"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="-4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+<feBlend mode="normal" in2="effect2_innerShadow_1371_88067" result="effect3_innerShadow_1371_88067"/>
+</filter>
+<clipPath id="clip0_1371_88067">
+<rect x="40" y="26" width="274" height="266" rx="30" fill="white"/>
+</clipPath>
+<clipPath id="clip1_1371_88067">
+<rect width="4.52052" height="7.53421" fill="white" transform="translate(124.539 54.4727)"/>
+</clipPath>
+</defs>
+</svg>

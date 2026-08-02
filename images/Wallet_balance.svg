@@ -1,0 +1,33 @@
+<svg width="354" height="346" viewBox="0 0 354 346" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_1371_87746)">
+<rect x="40" y="26" width="274" height="266" rx="30" fill="white"/>
+<rect x="40.5" y="26.5" width="273" height="265" rx="29.5" stroke="#F4F4F4"/>
+<text fill="#888888" style="white-space: pre" xml:space="preserve" font-family="SF Pro Rounded" font-size="14" letter-spacing="0.02em"><tspan x="55" y="142.477">Total Balance</tspan></text>
+<text fill="#333333" style="white-space: pre" xml:space="preserve" font-family="SF Pro Rounded" font-size="36" font-weight="600" letter-spacing="0.02em"><tspan x="55" y="181.297">$10,833.82</tspan></text>
+<rect x="55" y="41" width="39" height="39" rx="19.5" fill="#F0F0F0"/>
+<path d="M77.625 61.75C80.3174 61.75 82.5 61.0784 82.5 60.25C82.5 59.4216 80.3174 58.75 77.625 58.75C74.9326 58.75 72.75 59.4216 72.75 60.25C72.75 61.0784 74.9326 61.75 77.625 61.75Z" stroke="#888888" stroke-width="1.125" stroke-linejoin="round"/>
+<path d="M82.5 63.625C82.5 64.4534 80.3174 65.125 77.625 65.125C74.9326 65.125 72.75 64.4534 72.75 63.625" stroke="#888888" stroke-width="1.125" stroke-linejoin="round"/>
+<path d="M82.5 60.25V66.85C82.5 67.7612 80.3174 68.5 77.625 68.5C74.9326 68.5 72.75 67.7612 72.75 66.85V60.25" stroke="#888888" stroke-width="1.125" stroke-linejoin="round"/>
+<path d="M72.375 56.5C75.0674 56.5 77.25 55.8284 77.25 55C77.25 54.1716 75.0674 53.5 72.375 53.5C69.6826 53.5 67.5 54.1716 67.5 55C67.5 55.8284 69.6826 56.5 72.375 56.5Z" stroke="#888888" stroke-width="1.125" stroke-linejoin="round"/>
+<path d="M71.25 60.25C69.75 60.25 67.7774 59.6309 67.5 58.75M71.25 64C69.75 64 67.7774 63.3809 67.5 62.5" stroke="#888888" stroke-width="1.125" stroke-linejoin="round"/>
+<path d="M71.25 67.75C69.75 67.75 67.7774 67.1309 67.5 66.25V55" stroke="#888888" stroke-width="1.125" stroke-linejoin="round"/>
+<path d="M77.25 57.25V55" stroke="#888888" stroke-width="1.125" stroke-linejoin="round"/>
+<text fill="black" style="white-space: pre" xml:space="preserve" font-family="SF Pro Rounded" font-size="15" letter-spacing="0em"><tspan x="101.149" y="65.832">Wallet</tspan></text>
+<rect x="55" y="240" width="66" height="26" rx="13" fill="#D5F7DF"/>
+<text fill="#49CC6E" style="white-space: pre" xml:space="preserve" font-family="SF Pro Rounded" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="64.9014" y="257.977">+2.14%</tspan></text>
+<rect x="126" y="240" width="90" height="26" rx="13" fill="#D5F7DF"/>
+<text fill="#49CC6E" style="white-space: pre" xml:space="preserve" font-family="SF Pro Rounded" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="134.77" y="257.977">+$2,901.22</tspan></text>
+</g>
+<defs>
+<filter id="filter0_d_1371_87746" x="0" y="0" width="354" height="346" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="14"/>
+<feGaussianBlur stdDeviation="20"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1371_87746"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1371_87746" result="shape"/>
+</filter>
+</defs>
+</svg>
